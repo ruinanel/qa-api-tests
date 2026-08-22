@@ -1,0 +1,10 @@
+# pre-commit: автоматически проверяет код ПЕРЕД каждым коммитом.
+# Установка (один раз):  pre-commit install
+# Тогда ruff будет чинить стиль и ловить ошибки до попадания в git.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.4
+    hooks:
+      - id: ruff          # линтер (ищет ошибки/запахи)
+        args: [--fix]
+      - id: ruff-format   # форматтер (единый стиль)

@@ -1,0 +1,6 @@
+# Инструменты разработки/качества (не нужны для самого прогона тестов)
+-r requirements.txt
+ruff>=0.6
+mypy
+pre-commit>=3.7
+types-requests

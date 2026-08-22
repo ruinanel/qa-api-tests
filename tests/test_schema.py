@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
 """Валидация ответов по JSON-схеме.
 Запуск:  pytest tests/test_schema.py -v
 """
-import pytest
+
 
 from api.validation import assert_valid_schema
-from schemas import USER_SCHEMA, POST_SCHEMA
+from schemas import POST_SCHEMA, USER_SCHEMA
 
 
 # --- ПРИМЕР (проходит) ---
 def test_user_matches_schema(api):
     resp = api.get("/users/1")
     assert resp.status_code == 200
-    assert_valid_schema(resp.json(), USER_SCHEMA)   # проверяем всю структуру разом
+    assert_valid_schema(resp.json(), USER_SCHEMA)  # проверяем всю структуру разом
 
 
 # --- ТВОЁ ЗАДАНИЕ ---

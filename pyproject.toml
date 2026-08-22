@@ -1,0 +1,15 @@
+# Конфигурация инструментов качества кода.
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E,W — стиль (pycodestyle); F — ошибки (pyflakes); I — сортировка импортов (isort);
+# UP — модернизация синтаксиса (pyupgrade); B — типичные баги (flake8-bugbear).
+select = ["E", "W", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true   # не ругаться на сторонние либы без type-stubs
+warn_unused_ignores = true

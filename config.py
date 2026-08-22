@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
 """Настройки проекта. Одно место для базового URL и таймаутов —
 чтобы не хардкодить их по всем тестам (в реальном проекте сюда же кладут окружения dev/stage/prod).
 """
+
 import os
 
 # Базовый адрес тестируемого API. Можно переопределить переменной окружения BASE_URL.
-BASE_URL = os.getenv("BASE_URL", "https://jsonplaceholder.typicode.com")
+BASE_URL: str = os.getenv("BASE_URL", "https://jsonplaceholder.typicode.com")
 
 # Максимальное время ожидания ответа (сек). Защита от «висящих» запросов.
-TIMEOUT = int(os.getenv("TIMEOUT", "10"))
+TIMEOUT: int = int(os.getenv("TIMEOUT", "10"))

@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 """Общие фикстуры для всех тестов."""
+
 import pytest
 
 from api.client import ApiClient

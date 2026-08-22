@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 """Тесты ресурса Users. Показывают приёмы + аннотации Allure.
 Запуск:  pytest tests/test_users.py -v
 """
+
 import allure
 import pytest
 
 
-@allure.feature("Users")          # группировка в отчёте: раздел «Users»
+@allure.feature("Users")  # группировка в отчёте: раздел «Users»
 class TestUsers:
-
     @allure.title("GET /users/1 возвращает статус 200")
     def test_get_user_returns_200(self, api):
         response = api.get("/users/1")

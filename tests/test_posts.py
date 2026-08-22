@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 """Тесты ресурса Posts / Comments.
 Запуск:  pytest tests/test_posts.py -v
 """
+
 import allure
 
 
 @allure.feature("Posts")
 @allure.story("Читаем посты")
 class TestPosts:
-
     @allure.title("GET /posts/1 возвращает пост с нужными полями")
     def test_get_single_post(self, api):
         response = api.get("/posts/1")
