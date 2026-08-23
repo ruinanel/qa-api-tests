@@ -1,7 +1,3 @@
-"""Тесты ресурса Posts / Comments.
-Запуск:  pytest tests/test_posts.py -v
-"""
-
 import allure
 
 

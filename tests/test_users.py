@@ -1,7 +1,3 @@
-"""Тесты ресурса Users. Показывают приёмы + аннотации Allure.
-Запуск:  pytest tests/test_users.py -v
-"""
-
 import allure
 import pytest
 
