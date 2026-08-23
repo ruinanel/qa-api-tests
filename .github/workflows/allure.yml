@@ -1,0 +1,48 @@
+name: Allure report
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 3 * * *"   # обновлять отчёт ночью после прогона
+
+permissions:
+  contents: write          # нужно, чтобы публиковать в ветку gh-pages
+
+jobs:
+  allure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests (собираем allure-results)
+        run: pytest --alluredir=allure-results
+        continue-on-error: true   # отчёт нужен и когда тесты упали
+
+      - name: Load previous Allure history
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+        continue-on-error: true   # при первом запуске ветки gh-pages ещё нет
+
+      - name: Build Allure report (с историей/трендами)
+        uses: simple-elf/allure-report-action@v1.9
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          gh_pages: gh-pages
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history

@@ -1,6 +1,9 @@
 # API-автотесты (pytest + requests)
 
 ![API tests](https://github.com/ruinanel/qa-api-tests/actions/workflows/tests.yml/badge.svg)
+![Allure report](https://github.com/ruinanel/qa-api-tests/actions/workflows/allure.yml/badge.svg)
+
+📊 **Live Allure-отчёт:** https://ruinanel.github.io/qa-api-tests/ (обновляется в CI)
 
 Автотесты REST API на Python. Демонстрируют структуру фреймворка, API-клиент,
 фикстуры, параметризацию, позитивные и негативные сценарии.
