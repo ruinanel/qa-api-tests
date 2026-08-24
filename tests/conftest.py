@@ -2,6 +2,7 @@
 
 import pytest
 
+from api.async_client import AsyncApiClient
 from api.client import ApiClient
 
 
@@ -12,3 +13,9 @@ def api():
     клиента и сессию заново перед каждым тестом). Тесты только читают, состояние не портят.
     """
     return ApiClient()
+
+@pytest.fixture(scope="session")
+def async_api():
+    """Готовый Async API-клиент.
+    """
+    return AsyncApiClient()
