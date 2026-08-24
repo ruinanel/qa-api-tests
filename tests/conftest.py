@@ -14,8 +14,8 @@ def api():
     """
     return ApiClient()
 
-@pytest.fixture(scope="session")
+
+@pytest.fixture()
 def async_api():
-    """Готовый Async API-клиент.
-    """
+    """Готовый Async API-клиент."""
     return AsyncApiClient()

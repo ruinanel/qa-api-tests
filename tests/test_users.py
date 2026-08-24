@@ -23,8 +23,8 @@ class TestUsers:
     def test_users_list_returns_ten(self, api):
         with allure.step("Запросить список пользователей"):
             response = api.get("/users")
-        body = response.json()
 
         assert response.status_code == 200
+        body = response.json()
         assert isinstance(body, list)
         assert len(body) == 10

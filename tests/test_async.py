@@ -15,7 +15,7 @@ class TestGetsAsync:
     async def test_get_gather(self, async_api):
         responses = await asyncio.gather(*[async_api.get(f"/users/{i}") for i in range(1, 6)])
         for index, response in enumerate(responses):
-            body = response.json()
             assert response.status_code == 200
-            assert 'id' in body
+            body = response.json()
+            assert "id" in body
             assert body["id"] == index + 1
